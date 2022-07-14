@@ -1,7 +1,14 @@
 <template>
   <div class="hello">
-    <h1>{{authorCreateProject}}</h1>
-    <p>
+    <h1> create project:{{authorCreateProject}}</h1>
+    <div v-for="student in students" v-bind:key="student.id">
+      <h3>{{student.name}}</h3>
+      <p>{{student.age}}</p>
+      <ul>
+        <li v-for="(stack,key) in student.stacks" :key="key"> {{stack}}</li>
+      </ul>
+    </div>
+   <!-- <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
@@ -26,7 +33,7 @@
       <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    </ul>-->
   </div>
 </template>
 
@@ -34,11 +41,25 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
-      authorCreateProject: 'Alex Prokopenko'
+      authorCreateProject: 'Alex Prokopenko',
+      students: [
+        {
+          id: 1,
+          name: 'Alex Prokopenko',
+          age: 21,
+          stacks: ['PHP', 'OctoberCms', 'Laravel', 'html', 'css', 'less', 'git', 'composer', 'yarn', 'vue', 'VueX']
+        },
+        {
+          id: 2,
+          name: 'Semin',
+          age: 21,
+          stacks: ['html'],
+        }
+      ]
     }
   }
 }
@@ -48,6 +69,7 @@ export default {
 <style scoped>
 h3 {
   margin: 40px 0 0;
+  color: #42b983;
 }
 ul {
   list-style-type: none;
@@ -56,8 +78,5 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>
