@@ -4,10 +4,13 @@
     <div v-for="student in students" v-bind:key="student.id">
       <h3>{{student.name}}</h3>
       <p>{{student.age}}</p>
+      <p v-if="defineComingAgeStudent(student.age)">Студент совершеннолетний</p>
+        <p v-else> Не совершеннолетний</p>
       <ul>
         <li v-for="(stack,key) in student.stacks" :key="key"> {{stack}}</li>
       </ul>
     </div>
+
    <!-- <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -43,6 +46,16 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+    /**
+     *
+     * @param age Number student age
+     * @returns {boolean}
+     */
+    defineComingAgeStudent(age) {
+      return age > 17;
+    }
+  },
   data() {
     return {
       authorCreateProject: 'Alex Prokopenko',
@@ -58,6 +71,12 @@ export default {
           name: 'Semin',
           age: 21,
           stacks: ['html'],
+        },
+        {
+          id: 3,
+          name: 'Mamut',
+          age: 16,
+          stacks: ['css', 'html']
         }
       ]
     }
