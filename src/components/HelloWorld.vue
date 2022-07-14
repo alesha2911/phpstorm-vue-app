@@ -74,7 +74,7 @@ export default {
         },
         {
           id: 3,
-          name: 'Mamut',
+          name: 'Mamut Racality',
           age: 16,
           stacks: ['css', 'html']
         }
