@@ -68,9 +68,9 @@ export default {
         },
         {
           id: 2,
-          name: 'Semin',
+          name: 'Semin Alexander',
           age: 21,
-          stacks: ['html'],
+          stacks: ['html','Vue.js'],
         },
         {
           id: 3,
